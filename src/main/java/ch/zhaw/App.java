@@ -86,6 +86,8 @@ public class App {
         String leaderboard = getLeaderboard(users);
 
         System.out.println("\n" + leaderboard);
+
+        scanner.close();
     }
 
 
