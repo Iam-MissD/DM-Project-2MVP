@@ -48,10 +48,10 @@ public class App {
         MongoClient mongoClient = MongoClients.create(settings);
 
         // DatabaseName
-        MongoDatabase database = mongoClient.getDatabase("Project2MVP");
+        MongoDatabase database = mongoClient.getDatabase("Project2");
 
         // Collections in the MongoDB
-        MongoCollection<org.bson.Document> food = database.getCollection("foods");
+        MongoCollection<org.bson.Document> foods = database.getCollection("foods");
         MongoCollection<org.bson.Document> users = database.getCollection("users");
 
 
@@ -65,15 +65,15 @@ public class App {
 
         System.out.println("Welcome to the Food Quiz!");
 
-        totalPoints += runQuiz("calories", scanner, food);
+        totalPoints += runQuiz("calories", scanner, foods);
         System.out.println("\n");
-        totalPoints += runQuiz("total_fat", scanner, food);
+        totalPoints += runQuiz("total_fat", scanner, foods);
         System.out.println("\n");
-        totalPoints += runQuiz("protein", scanner, food);
+        totalPoints += runQuiz("protein", scanner, foods);
         System.out.println("\n");
-        totalPoints += runQuiz("fiber", scanner, food);
+        totalPoints += runQuiz("fiber", scanner, foods);
         System.out.println("\n");
-        totalPoints += runQuiz("sugars", scanner, food);
+        totalPoints += runQuiz("sugars", scanner, foods);
         System.out.println("\n");
 
         System.out.println("Your total points are: " +totalPoints);
