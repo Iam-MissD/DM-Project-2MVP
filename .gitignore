@@ -2,3 +2,4 @@ src/test/*
 target/*
 .vscode
 .DS*
+Credentials.java

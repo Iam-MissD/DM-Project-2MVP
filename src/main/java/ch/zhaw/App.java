@@ -34,14 +34,20 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // Define the Connection to MongoDB
-        ConnectionString connectionSTring = new ConnectionString("");   // <------- CONNECTION-STRING FOR MONGODB
+        // I created a Java Class with the Credentials.java and defined the String there: public static String connectionString = "MY STRING".
+        // But you can as well paste your String in the brackets
+        ConnectionString connectionString = new ConnectionString(Credentials.connectionString);   // <------- CONNECTION-STRING FOR MONGODB
+
+        // Define the Setting for the Connection
         MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(connectionSTring)
+                .applyConnectionString(connectionString)
                 .serverApi(ServerApi.builder()
                         .version(ServerApiVersion.V1)
                         .build())
                 .build();
         MongoClient mongoClient = MongoClients.create(settings);
+
+        // DatabaseName
         MongoDatabase database = mongoClient.getDatabase("Project2MVP");
 
         // Collections in the MongoDB
